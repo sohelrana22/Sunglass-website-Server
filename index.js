@@ -78,11 +78,11 @@ async function run() {
       }
       res.send({ admin: isAdmin });
     });
-    // app.post("/addproducts", async (req, res) => {
-    //   const newProducts = req.body;
-    //   const addedProducts = await productsCollection.insertOne(newProducts);
-    //   res.send(addedProducts);
-    // });
+    app.post("/addproducts", async (req, res) => {
+      const newProducts = req.body;
+      const addedProducts = await productsCollection.insertOne(newProducts);
+      res.send(addedProducts);
+    });
     app.get("/allproducts", async (req, res) => {
       const products = productsCollection.find({});
       if ((await products.count()) > 0) {
